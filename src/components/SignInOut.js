@@ -4,6 +4,7 @@ import authenticationStore from "../Store/authenticationStore";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 
+// REVIEW: component should be called Auth for example, or SignInUp
 function SignInOut() {
   const navigate = useNavigate();
   const [userStatus, setUserStatus] = useState(false);
@@ -54,7 +55,9 @@ function SignInOut() {
           Create account
         </button>
       </div>
+      {/* REVIEW: You can say !userStatus instead of userStatus === false */}
       {userStatus === false ? (
+        // REVIEW: Move the signin form into its own component
         <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
           <input
             className="form-control"
@@ -69,10 +72,12 @@ function SignInOut() {
             placeholder="Password"
           />
           <button className="btn btn-inverse btn-primary" type="submit">
+            {/* REVIEW: USe a better word `Sign in` for example */}
             Submit
           </button>
         </form>
       ) : (
+        // REVIEW: Move the signup form into its own component
         <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
           <input
             className="form-control"
@@ -97,6 +102,7 @@ function SignInOut() {
           </button>
         </form>
       )}
+      {/* This should be in index.html not here */}
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap%27);

@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <NavBar />
-
+      {/* REVIEW: You need one <Routes></Routes> only, and inside it you put all your <Route /> */}
       <Routes>
         <Route path="/CategoryList" element={<CategoryList />} />
       </Routes>

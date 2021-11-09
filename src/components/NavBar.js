@@ -31,7 +31,7 @@ function NavBar() {
           >
          */}
           <Button classNameName="btn btn-outline-success" type="submit">
-            Search
+            Add
           </Button>
         </Form>
       </div>

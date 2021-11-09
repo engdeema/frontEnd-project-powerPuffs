@@ -13,9 +13,11 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/CategoryList" element={<CategoryList />} />
-      </Routes>
-      <Routes>
+
         <Route path="/" element={<SignInOut />} />
+
+
+        <Route path="/Appatizer" element={<Appetizars />} />
       </Routes>
     </>
 

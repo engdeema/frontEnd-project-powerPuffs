@@ -1,6 +1,9 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import authenticationStore from "../Store/authenticationStore";
+import { observer } from "mobx-react";
+
 function NavBar() {
   return (
     // <nav>
@@ -12,16 +15,17 @@ function NavBar() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/">
+            <Link className="nav-link active" aria-current="page" to="/">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Button className="nav-link" href="#">
               Logout
-            </a>
+            </Button>
           </li>
         </ul>
+
         <Form className="d-flex">
           {/* <input
             className="form-control me-2"
@@ -30,13 +34,24 @@ function NavBar() {
             aria-label="Search"
           >
          */}
-          <Button classNameName="btn btn-outline-success" type="submit">
+          <Button className="btn btn-outline-success" type="submit">
             Add
           </Button>
+
+          {authenticationStore.user ? (
+            <Button
+              className="btn btn-inverse btn-primary"
+              onClick={() => authenticationStore.logout()}
+            >
+              {" "}
+              <Link to="/">logout</Link>
+            </Button>
+          ) : null}
         </Form>
+
       </div>
     </nav>
   );
 }
 
-export default NavBar;
+export default observer(NavBar);

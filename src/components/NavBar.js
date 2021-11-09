@@ -1,6 +1,9 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import authenticationStore from "../Store/authenticationStore";
+import { observer } from "mobx-react";
+
 function NavBar() {
   return (
     // <nav>
@@ -30,13 +33,23 @@ function NavBar() {
             aria-label="Search"
           >
          */}
-          <Button classNameName="btn btn-outline-success" type="submit">
+          <Button className="btn btn-outline-success" type="submit">
             Add
           </Button>
+
+          {authenticationStore.user ? (
+            <Button
+              className="btn btn-inverse btn-primary"
+              onClick={() => authenticationStore.logout()}
+            >
+              {" "}
+              <Link to="/">logout</Link>
+            </Button>
+          ) : null}
         </Form>
       </div>
     </nav>
   );
 }
 
-export default NavBar;
+export default observer(NavBar);

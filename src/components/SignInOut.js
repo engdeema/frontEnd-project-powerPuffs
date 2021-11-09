@@ -28,7 +28,7 @@ function SignInOut() {
     //2) i will pass it as an argument ()
 
     userStatus === false
-      ? authenticationStore.signIn(signedIn)
+      ? authenticationStore.signIn(signedIn, navigate)
       : authenticationStore.signUp(signedUp, navigate);
   };
 

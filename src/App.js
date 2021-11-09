@@ -9,7 +9,6 @@ import Appetizars from "./components/Appetizars";
 
 import SignInOut from "./components/SignInOut";
 
-
 function App() {
   return (
     <>

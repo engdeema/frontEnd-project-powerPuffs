@@ -18,16 +18,16 @@ class AuthStore {
     try {
       const response = await instance.post("/signup", userData);
       this.setUser(response.data.token);
-      navigate("/");
+      navigate("/CategoryList");
     } catch (error) {
       console.log(error);
     }
   };
-  signIn = async (userData, history) => {
+  signIn = async (userData, navigate) => {
     try {
       const res = await instance.post("/signin", userData);
       this.setUser(res.data.token);
-      history.push("/");
+      navigate("/CategoryList");
     } catch (error) {}
   };
   logout = () => {
@@ -49,5 +49,5 @@ class AuthStore {
   };
 }
 
-const authStore = new AuthStore();
-export default authStore;
+const authenticationStore = new AuthStore();
+export default authenticationStore;

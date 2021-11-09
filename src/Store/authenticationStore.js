@@ -23,10 +23,30 @@ class AuthStore {
       console.log(error);
     }
   };
-
-  //   logout = () => {
-  //     this.user = null;
-  //   };
+  signIn = async (userData, history) => {
+    try {
+      const res = await instance.post("/signin", userData);
+      this.setUser(res.data.token);
+      history.push("/");
+    } catch (error) {}
+  };
+  logout = () => {
+    delete instance.defaults.headers.common.Authorization;
+    localStorage.removeItem("myToken");
+    this.user = null;
+  };
+  checkForToken = () => {
+    const token = localStorage.getItem("myToken");
+    if (token) {
+      const currenTime = Date.now();
+      let tempUser = decode(token);
+      if (tempUser.exp >= currenTime) {
+        this.setUser(token);
+      } else {
+        this.logout();
+      }
+    }
+  };
 }
 
 const authStore = new AuthStore();

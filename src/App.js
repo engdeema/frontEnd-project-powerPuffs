@@ -1,8 +1,10 @@
+import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CategoryList from "./components/CategoryList";
 // Components
 import NavBar from "./components/NavBar";
+import SignInOut from "./components/SignInOut";
 
 function App() {
   return (
@@ -10,7 +12,10 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<CategoryList />} />
+        <Route path="/CategoryList" element={<CategoryList />} />
+      </Routes>
+      <Routes>
+        <Route path="/" element={<SignInOut />} />
       </Routes>
     </>
 

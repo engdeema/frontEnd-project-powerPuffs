@@ -1,9 +1,10 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { observer } from "mobx-react";
-import authStore from "../Store/authenticationStore";
+import authenticationStore from "../Store/authenticationStore";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
-function Home() {
+function SignInOut() {
   const navigate = useNavigate();
   const [userStatus, setUserStatus] = useState(false);
   const [signedIn, setSignIn] = useState({
@@ -27,8 +28,8 @@ function Home() {
     //2) i will pass it as an argument ()
 
     userStatus === false
-      ? authStore.signIn(signedIn)
-      : authStore.signUp(signedUp, navigate);
+      ? authenticationStore.signIn(signedIn)
+      : authenticationStore.signUp(signedUp, navigate);
   };
 
   return (
@@ -104,4 +105,4 @@ function Home() {
   );
 }
 
-export default observer(Home);
+export default observer(SignInOut);

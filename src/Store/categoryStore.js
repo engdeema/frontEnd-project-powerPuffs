@@ -1,3 +1,9 @@
+import React from "react";
+
+function categoryStore() {
+  return <div></div>;
+}
+
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 

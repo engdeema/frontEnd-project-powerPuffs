@@ -1,21 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ListGroup } from "react-bootstrap";
-// const str = "";
-function CategoryList() {
-  return (
-    // <div>
-    //   <h1>CategoryList</h1>
-    //   <Link to="/Appetizars">Appetizars</Link>
-    //   <p> {str} </p>
-    //   <Link to="/Main-dish">Main dish</Link>
-    //   <p> {str} </p>
-    //   <Link to="/Desserts">Desserts</Link>
-    //   <p> {str} </p>
-    //   <Link to="/Beverages">Beverages</Link>
-    // </div>
+import CategoryModal from "./CategoryModal";
+import categoryStore from "../Store/categoryStore";
+import CategoryCard from "./CategoryCard";
+import { Form, Row, Stack } from "react-bootstrap";
+import { useState } from "react";
 
+function CategoryList({ category }) {
+  const [query, setQuery] = useState("");
+
+  const categoryList = categoryStore.categories
+    .filter((category) => category.name.includes(query))
+    .map((category) => <CategoryCard key={category._id} category={category} />);
+
+  return (
     <div className="list-group">
+      <h1 className="title">Categorys</h1>
+      <Stack direction="horizontal" gap={3}>
+        <Form.Control
+          className="m-2"
+          placeholder="Search for category by name"
+          onChange={(event) => setQuery(event.target.value)}
+        />
+        <CategoryModal />
+      </Stack>
+
+      <Row>{categoryList}</Row>
       <a
         href="/"
         className="list-group-item list-group-item-action active"

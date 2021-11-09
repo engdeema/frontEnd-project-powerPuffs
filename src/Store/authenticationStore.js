@@ -34,6 +34,7 @@ class AuthStore {
     delete instance.defaults.headers.common.Authorization;
     localStorage.removeItem("myToken");
     this.user = null;
+    console.log("logout");
   };
   checkForToken = () => {
     const token = localStorage.getItem("myToken");

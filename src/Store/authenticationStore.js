@@ -14,10 +14,11 @@ class AuthStore {
     this.user = decode(token);
   };
 
-  signUp = async (userData) => {
+  signUp = async (userData, navigate) => {
     try {
       const response = await instance.post("/signup", userData);
       this.setUser(response.data.token);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

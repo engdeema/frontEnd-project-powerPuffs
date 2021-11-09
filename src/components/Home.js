@@ -1,8 +1,10 @@
 import { React, useState } from "react";
 import { observer } from "mobx-react";
 import authStore from "../Store/authenticationStore";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const [userStatus, setUserStatus] = useState(false);
   const [signedIn, setSignIn] = useState({
     username: "",
@@ -21,10 +23,12 @@ function Home() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    // 1) ican't use hoocks unless inside componet
+    //2) i will pass it as an argument ()
 
     userStatus === false
       ? authStore.signIn(signedIn)
-      : authStore.signUp(signedUp);
+      : authStore.signUp(signedUp, navigate);
   };
 
   return (

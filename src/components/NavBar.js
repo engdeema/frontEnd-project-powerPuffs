@@ -10,25 +10,41 @@ function NavBar() {
     //   <Link to="/">Category</Link>
     //   <Link to="/">Logout</Link>
     // </nav>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+    <div>
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="collapse navbar-collapse" id="navbarSupportedContent"> */}
+      {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <Link className="nav-link active" aria-current="page" to="/">
               Home
             </Link>
           </li>
           <li className="nav-item"></li>
-        </ul>
+        </ul> */}
 
-        <Form className="d-flex">
-          {/* <input
+      <Form className="d-flex">
+        {/* <input
             className="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           >
          */}
+
+
+        {authenticationStore.user ? (
+          <Button
+            className="btn btn-outline-success"
+            type="submit"
+            type="submit"
+            onClick={() => authenticationStore.logout()}
+          >
+            {" "}
+            <Link to="/">logout</Link>
+          </Button>
+        ) : null}
+      </Form>
+
 
           {authenticationStore.user ? (
             <Button
@@ -42,6 +58,7 @@ function NavBar() {
           ) : null}
         </Form>
       </div>
+
       <a class="navbar-brand" href="/">
         <div class="logo-image">
           <img
@@ -50,7 +67,8 @@ function NavBar() {
           />
         </div>
       </a>
-    </nav>
+      {/* </nav> */}
+    </div>
   );
 }
 

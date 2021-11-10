@@ -18,8 +18,8 @@ function CategoryList() {
     .map((category) => <CategoryItem key={category._id} category={category} />);
 
   return (
-    <div className="list-group">
-      <h1 className="title">Categories</h1>
+    <div className="list-group ">
+      <h1 className="title text-gradient-black">Categories</h1>
       <Stack direction="horizontal" gap={3}>
         <Form.Control
           className="m-2"
@@ -29,7 +29,7 @@ function CategoryList() {
         <CategoryModal />
       </Stack>
 
-      <Row>{categoryList}</Row>
+      <Row className="box">{categoryList}</Row>
     </div>
   );
 }

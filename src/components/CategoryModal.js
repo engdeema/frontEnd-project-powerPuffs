@@ -26,7 +26,7 @@ function CategoryModal() {
 
   return (
     <>
-      <Button variant="btn btn-primary" onClick={handleShow}>
+      <Button variant="btn btn-grad" onClick={handleShow}>
         New
       </Button>
       <Modal show={show} onHide={handleClose}>

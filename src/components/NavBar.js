@@ -35,6 +35,7 @@ function NavBar() {
             <Button
               className="btn btn-outline-success"
               type="submit"
+              type="submit"
               onClick={() => authenticationStore.logout()}
             >
               {" "}

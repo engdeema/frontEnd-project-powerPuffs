@@ -7,7 +7,7 @@ function CategoryItem({ category }) {
       className="card col-md-3 card border-primary m-5 "
       style={{ width: "16rem;" }}
     >
-      <img src={category.image} className="card-img-top" alt="NO IMAGE!" />
+      <img src={category.image} className="card-img-top" alt={category.name} />
       <div className="card-body">
         <h5 className="card-title">{category.name}</h5>
 

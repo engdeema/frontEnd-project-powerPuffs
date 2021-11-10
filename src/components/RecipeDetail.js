@@ -1,18 +1,25 @@
 import React from "react";
-import categoryStore from "../Store/categoryStore";
+import recipeStore from "../Store/recipeStore";
 import { observer } from "mobx-react-lite";
-import RecipieList from "./RecipieList";
 import { useParams } from "react-router";
 import { Navigate } from "react-router-dom";
-const CategoryDetail = () => {
-  const { categorySlug } = useParams();
+import RecipieList from "./RecipieList";
+const RecipeDetail = () => {
+  const { recipeSlug } = useParams();
 
-  if (categoryStore.isLoading) return <p>Loading</p>;
-
-  const category = categoryStore.categories.find(
-    (category) => category.slug === categorySlug
+  const recipe = recipeStore.recipes.find(
+    (recipe) => recipe.slug === recipeSlug
   );
-  if (!category) return <Navigate to="/CategoryList" />;
+  console.log(recipe);
+  console.log(recipeStore.recipes);
+  // if (recipeStore.isLoading) return <p>Loading</p>;
+  recipeStore.isLoading || !recipe ? (
+    <p>Loading</p>
+  ) : (
+    <Navigate to="/RecipieList" />
+  );
+
+  // if (!recipe) return <Navigate to="/RecipieList" />;
   //   const handleSubmit = (event) => {
   //     event.preventDefault();
   //     // categoryStore.createrecepie(recipe);
@@ -27,10 +34,14 @@ const CategoryDetail = () => {
         className="card col-md-3 card border-primary m-5 "
         style={{ width: "16rem;" }}
       >
-        <img src={category.image} className="card-img-top" alt="NO IMAGE!" />
+        <img src={recipe.image} className="card-img-top" alt="NO IMAGE!" />
         <div className="card-body">
-          <h5 className="card-title">Category Name:{category.name}</h5>
-          <RecipieList recipes={category.recipes} categoryId={category._id} />
+          <h5 className="card-title">Recipe Name:{recipe.name}</h5>
+
+          {/* <CategoryList
+            categories={category.recipes}
+            categoryId={category._id}
+          /> */}
 
           {/* <p>Created By: {category.author.username}</p> */}
 
@@ -39,8 +50,9 @@ const CategoryDetail = () => {
           </button> */}
         </div>
       </div>
+      //{" "}
     </div>
   );
 };
 
-export default observer(CategoryDetail);
+export default observer(RecipeDetail);

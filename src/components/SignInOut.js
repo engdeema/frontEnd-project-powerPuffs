@@ -36,10 +36,9 @@ function SignInOut() {
     <div className="sign">
       <div className="SignInDiv" id="SignIn">
         <h1 className="welcomeHeader">Welcome to PowerPuff Girls Projects</h1>
-        <h4 className="welcomeHeader">Sign in / sign up</h4>
         <div className="btnSign">
           <button
-            className="btn btn-inverse btn-primary"
+            className="btn btn-inverse btn-primary margin"
             onClick={() => {
               setUserStatus(false);
             }}
@@ -47,7 +46,7 @@ function SignInOut() {
             Sign In
           </button>
           <button
-            className="btn btn-inverse btn-primary"
+            className="btn btn-inverse btn-primary margin"
             onClick={() => {
               setUserStatus(true);
             }}

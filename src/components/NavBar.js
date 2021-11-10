@@ -19,10 +19,7 @@ function NavBar() {
               Home
             </Link>
           </li>
-          <li className="nav-item">
-            {/* handle */}
-            <Button className="nav-link">Logout</Button>
-          </li>
+          <li className="nav-item"></li>
         </ul>
 
         <Form className="d-flex">
@@ -33,13 +30,11 @@ function NavBar() {
             aria-label="Search"
           >
          */}
-          <Button className="btn btn-outline-success" type="submit">
-            Add
-          </Button>
 
           {authenticationStore.user ? (
             <Button
-              className="btn btn-inverse btn-primary"
+              className="btn btn-outline-success"
+              type="submit"
               onClick={() => authenticationStore.logout()}
             >
               {" "}

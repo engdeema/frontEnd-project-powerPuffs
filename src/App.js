@@ -11,7 +11,7 @@ import SignInOut from "./components/SignInOut";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <NavBar />
       <Routes>
         <Route
@@ -23,7 +23,7 @@ function App() {
 
         <Route path="/" element={<SignInOut />} />
       </Routes>
-    </>
+    </div>
 
     // import "./App.css";
     // import { observer } from "mobx-react";

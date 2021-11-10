@@ -7,6 +7,7 @@ function CategoryModal() {
   const [show, setShow] = useState(false);
   const [category, setcategory] = useState({
     name: "",
+    image: "",
   });
 
   const handleClose = () => setShow(false);
@@ -20,10 +21,12 @@ function CategoryModal() {
     categoryStore.createCategory(category);
     handleClose();
   };
+  const handleImage = (event) =>
+    setcategory({ ...category, image: event.target.files[0] });
 
   return (
     <>
-      <Button variant="outline-dark" onClick={handleShow}>
+      <Button variant="btn btn-primary" onClick={handleShow}>
         New
       </Button>
       <Modal show={show} onHide={handleClose}>
@@ -39,7 +42,15 @@ function CategoryModal() {
                 onChange={handleChange}
               />
             </InputGroup>
-
+            <InputGroup className="mb-3">
+              <InputGroup.Text>Image</InputGroup.Text>
+              <FormControl
+                name="image"
+                type="file"
+                onChange={handleImage}
+                placeholder="Image"
+              />
+            </InputGroup>
             <Button variant="outline-dark" type="submit">
               Add Category
             </Button>

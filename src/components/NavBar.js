@@ -33,9 +33,6 @@ function NavBar() {
             aria-label="Search"
           >
          */}
-          <Button className="btn btn-outline-success" type="submit">
-            Add
-          </Button>
 
           {authenticationStore.user ? (
             <Button

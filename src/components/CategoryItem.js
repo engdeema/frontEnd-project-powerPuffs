@@ -12,7 +12,7 @@ function CategoryItem({ category }) {
         <h5 className="card-title">{category.name}</h5>
 
         <Link to={`/CategoryList/${category.slug}`}>
-          <button className="btn btn-primary">Go to Recipe Details</button>
+          <button className="btn btn-primary">Go to Recipe </button>
         </Link>
       </div>
     </div>

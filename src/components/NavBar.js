@@ -31,11 +31,9 @@ function NavBar() {
           >
          */}
 
-
         {authenticationStore.user ? (
           <Button
             className="btn btn-outline-success"
-            type="submit"
             type="submit"
             onClick={() => authenticationStore.logout()}
           >
@@ -44,20 +42,6 @@ function NavBar() {
           </Button>
         ) : null}
       </Form>
-
-
-          {authenticationStore.user ? (
-            <Button
-              className="btn btn-outline-success"
-              type="submit"
-              onClick={() => authenticationStore.logout()}
-            >
-              {" "}
-              <Link to="/">logout</Link>
-            </Button>
-          ) : null}
-        </Form>
-      </div>
 
       <a class="navbar-brand" href="/">
         <div class="logo-image">

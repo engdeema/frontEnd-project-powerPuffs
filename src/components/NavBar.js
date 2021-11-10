@@ -20,9 +20,8 @@ function NavBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Button className="nav-link" href="#">
-              Logout
-            </Button>
+            {/* handle */}
+            <Button className="nav-link">Logout</Button>
           </li>
         </ul>
 
@@ -48,7 +47,6 @@ function NavBar() {
             </Button>
           ) : null}
         </Form>
-
       </div>
     </nav>
   );

@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 import decode from "jwt-decode";
 
 class AuthStore {
-  user = null;
+  users = null;
 
   constructor() {
     makeAutoObservable(this);

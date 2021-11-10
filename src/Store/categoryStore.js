@@ -1,18 +1,20 @@
-import React from "react";
-
-function categoryStore() {
-  return <div></div>;
-}
-
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
 class CategoryStore {
+  categories = [];
+  isLoading = true;
   constructor() {
     makeAutoObservable(this);
   }
-  categories = [];
-  isLoading = true;
+  fetchCategories = async () => {
+    try {
+      const response = await instance.get("/categories");
+      this.categories = response.data;
+      this.isLoading = false;
+    } catch (error) {}
+  };
+
   createCategory = async (newCategory) => {
     try {
       const formData = new FormData();
@@ -26,18 +28,8 @@ class CategoryStore {
       console.log("error", error);
     }
   };
-
-  fetchCategories = async () => {
-    try {
-      const response = await instance.get("/categories");
-      this.categories = response.data;
-    } catch (error) {
-      console.log("CategoryStore -> fetchCategories -> error", error);
-    }
-  };
 }
 
 const categoryStore = new CategoryStore();
 categoryStore.fetchCategories();
-
 export default categoryStore;

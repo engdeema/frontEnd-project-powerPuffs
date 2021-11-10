@@ -1,19 +1,17 @@
-import { observer } from "mobx-react-lite";
-import React from "react";
-import CategoryStore from "../Store/recipeStore";
-import RecipeItem from "./RecipeItem";
-import { useState } from "react";
+// import { observer } from "mobx-react-lite";
+// import { useState } from "react";
+// import recipeStore from "../Store/recipeStore";
 
-import React from "react";
+// import React from "react";
 
-function RecipieList() {
-  const [state, setState] = useState("");
+// function RecipieList() {
+//   const [state, setState] = useState("");
 
-  const recipieList = jam3yaStore.jam3yat.filter((jam3ya) =>
-    jam3ya.title.toLowerCase().includes(query)
-  );
+//   const recipieList = recipeStore.recipies.filter((recipe) =>
+//     recipe.name.toLowerCase().includes(recipe)
+//   );
 
-  return <div></div>;
-}
+//   return <div>{RecipieList}</div>;
+// }
 
-export default observer(RecipieList);
+// export default observer(RecipieList);

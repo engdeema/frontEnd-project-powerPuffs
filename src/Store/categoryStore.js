@@ -11,6 +11,7 @@ class CategoryStore {
     try {
       const response = await instance.get("/categories");
       this.categories = response.data;
+      // console.log(categories);
       this.isLoading = false;
     } catch (error) {}
   };

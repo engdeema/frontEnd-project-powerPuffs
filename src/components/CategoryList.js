@@ -29,7 +29,7 @@ function CategoryList() {
         <CategoryModal />
       </Stack>
 
-      <Row className="box">{categoryList}</Row>
+      <Row>{categoryList}</Row>
     </div>
   );
 }

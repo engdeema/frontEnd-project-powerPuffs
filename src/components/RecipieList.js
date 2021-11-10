@@ -9,6 +9,7 @@ import recipeStore from "../Store/recipeStore";
 function RecipieList({ recipes, categoryId }) {
   const [query, setQuery] = useState("");
   console.log(recipes);
+
   const recipieLists =
     recipes.length > 0
       ? recipes
@@ -18,7 +19,7 @@ function RecipieList({ recipes, categoryId }) {
 
   return (
     <div>
-      <h1 className="title">Recipes</h1>
+      <h1 className="title text-gradient-black">Recipes</h1>
       <Stack direction="horizontal" gap={3}>
         <Form.Control
           className="m-2"

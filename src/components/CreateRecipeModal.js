@@ -5,7 +5,7 @@ import recipeStore from "../Store/recipeStore";
 //اهوا اللي راح يسوي كرييت حق الريسيبي مالي
 function CreateRecipeModal({ categoryId }) {
   const [show, setShow] = useState(false);
-  const [recipe, setRecipe] = useState({
+  const [createRecipe, setCreateRecipe] = useState({
     name: "",
     image: "",
   });
@@ -14,10 +14,13 @@ function CreateRecipeModal({ categoryId }) {
   const handleShow = () => setShow(true);
 
   const handleChange = (event) =>
-    setProduct({ ...recipe, [event.target.name]: event.target.value });
+    setCreateRecipe({
+      ...createRecipe,
+      [event.target.name]: event.target.value,
+    });
 
   const handleImage = (event) =>
-    setProduct({ ...recipe, image: event.target.files[0] });
+    setCreateRecipe({ ...createRecipe, image: event.target.files[0] });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,7 +31,7 @@ function CreateRecipeModal({ categoryId }) {
     // المودال نناديها داخل اللست
     // اللست نناديها بالديتيل
     // راح اطرش الآيدي الشوب عن طريق برودكت مودال الحفيده
-    recipeStore.createRecipe(categoryId, recipe);
+    recipeStore.createRecipe(categoryId, createRecipe);
     handleClose();
   };
 
@@ -43,9 +46,9 @@ function CreateRecipeModal({ categoryId }) {
             <InputGroup className="mb-3">
               <InputGroup.Text>Name</InputGroup.Text>
               <FormControl
-                placeholder="Your product's name"
+                placeholder="Create your own Recipe"
                 name="name"
-                value={recipe.name}
+                value={createRecipe.name}
                 type="text"
                 onChange={handleChange}
               />

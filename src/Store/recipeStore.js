@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
 class RecipeStore {
-  recipies = [];
+  recipes = [];
   isLoading = true;
   constructor() {
     makeAutoObservable(this);
@@ -11,15 +11,24 @@ class RecipeStore {
   fetchRecipe = async () => {
     try {
       const res = await instance.get("/recipe");
-      this.recipies = res.data;
+      this.recipes = res.data;
       this.isLoading = false;
     } catch (error) {}
   };
-  createRecipe = async (newRecipe) => {
+  //فورم داتا
+  createRecipe = async (categoryId, newRecipe) => {
     try {
-      const res = await instance.post("/recipe", newRecipe);
+      const formData = new FormData();
+      for (const key in newRecipe) {
+        formData.append(key, newRecipe[key]);
+      }
+
+      const res = await instance.post(
+        `/categories/${categoryId}/recepies`,
+        newRecipe
+      );
       console.log(newRecipe);
-      this.recipies.push(res.data);
+      this.recipes.push(res.data);
     } catch (error) {}
   };
 }

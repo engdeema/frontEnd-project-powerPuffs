@@ -50,7 +50,6 @@ const RecipeDetail = () => {
           </button> */}
         </div>
       </div>
-      //{" "}
     </div>
   );
 };

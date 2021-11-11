@@ -5,7 +5,7 @@ function CategoryItem({ category }) {
   return (
     <div
       className="card col-md-3 card border-primary m-5 "
-      style={{ width: "16rem;" }}
+      style={{ width: "16rem" }}
     >
       <img src={category.image} className="card-img-top" alt={category.name} />
       <div className="card-body">

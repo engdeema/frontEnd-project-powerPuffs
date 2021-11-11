@@ -62,6 +62,10 @@ function CreateRecipeModal({ categoryId }) {
                 placeholder="Image"
               />
             </InputGroup>
+            <InputGroup className="mb-3">
+              <InputGroup.Text>Discreption</InputGroup.Text>
+              <FormControl name="name" type="text" onChange={handleChange} />
+            </InputGroup>
 
             <Button variant="outline-dark" type="submit">
               Add Recipe

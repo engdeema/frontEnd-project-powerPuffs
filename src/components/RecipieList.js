@@ -18,17 +18,17 @@ function RecipieList({ recipes, categoryId }) {
 
   return (
     <div>
-      <h1 className="title">Recipes</h1>
+      <h1 className="title text-gradient-black">Recipes</h1>
       <Stack direction="horizontal" gap={3}>
         <Form.Control
-          className="m-2"
+          className="m-2 a"
           placeholder="Search for recipe by name"
           onChange={(event) => setQuery(event.target.value)}
         />
         <CreateRecipeModal categoryId={categoryId} />
       </Stack>
 
-      <Row>{recipieLists}</Row>
+      <Row className="box ">{recipieLists}</Row>
     </div>
   );
 }

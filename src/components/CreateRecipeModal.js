@@ -37,7 +37,7 @@ function CreateRecipeModal({ categoryId }) {
 
   return (
     <>
-      <Button variant="outline-dark" onClick={handleShow}>
+      <Button variant="btn btn-grad" onClick={handleShow}>
         New
       </Button>
       <Modal show={show} onHide={handleClose}>

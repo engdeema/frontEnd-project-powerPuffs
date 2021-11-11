@@ -16,7 +16,7 @@ class RecipeStore {
     } catch (error) {}
   };
   //فورم داتا
-  createRecipe = async (categoryId, newRecipe) => {
+  createRecipe = async (category, newRecipe) => {
     try {
       const formData = new FormData();
       for (const key in newRecipe) {
@@ -24,11 +24,12 @@ class RecipeStore {
       }
 
       const res = await instance.post(
-        `/categories/${categoryId}/recepies`,
-        newRecipe
+        `/categories/${category._id}/recepies`,
+        formData
       );
       console.log(newRecipe);
       this.recipes.push(res.data);
+      category.recipes.push(res.data);
     } catch (error) {}
   };
 }

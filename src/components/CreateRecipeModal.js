@@ -1,9 +1,10 @@
 import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import { useState } from "react";
 import recipeStore from "../Store/recipeStore";
+import { observer } from "mobx-react";
 
 //اهوا اللي راح يسوي كرييت حق الريسيبي مالي
-function CreateRecipeModal({ categoryId }) {
+function CreateRecipeModal({ category }) {
   const [show, setShow] = useState(false);
   const [createRecipe, setCreateRecipe] = useState({
     name: "",
@@ -24,14 +25,8 @@ function CreateRecipeModal({ categoryId }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // productStore.createProduct(product);
-    // اهيا الكرييت تاخذ آي دي الشوب والبرودكت اليديد
-    //كرييت بتن داخل اللست ، اللست
-    // داخل الشوب ديتيل ، ف البتن يخص الشوب فقط وليس كل الشوبس
-    // المودال نناديها داخل اللست
-    // اللست نناديها بالديتيل
-    // راح اطرش الآيدي الشوب عن طريق برودكت مودال الحفيده
-    recipeStore.createRecipe(categoryId, createRecipe);
+    // console.log(categoryId, createRecipe);
+    recipeStore.createRecipe(category, createRecipe);
     handleClose();
   };
 
@@ -73,4 +68,4 @@ function CreateRecipeModal({ categoryId }) {
   );
 }
 
-export default CreateRecipeModal;
+export default observer(CreateRecipeModal);

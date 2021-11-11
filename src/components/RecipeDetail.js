@@ -1,6 +1,6 @@
 import React from "react";
 import recipeStore from "../Store/recipeStore";
-import { observer } from "mobx-react-lite";
+import { observer } from "mobx-react";
 import { useParams } from "react-router";
 import { Navigate } from "react-router-dom";
 import RecipieList from "./RecipieList";

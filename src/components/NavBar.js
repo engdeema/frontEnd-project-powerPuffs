@@ -35,7 +35,6 @@ function NavBar() {
           <Button
             className="btn btn-outline-success"
             type="submit"
-            type="submit"
             onClick={() => authenticationStore.logout()}
           >
             {" "}
@@ -43,6 +42,7 @@ function NavBar() {
           </Button>
         ) : null}
       </Form>
+
 
       <div>
         <Form>
@@ -69,6 +69,17 @@ function NavBar() {
         </a>
         {/* </nav> */}
       </div>
+
+      <a class="navbar-brand" href="/">
+        <div class="logo-image">
+          <img
+            src="https://pre00.deviantart.net/f2dd/th/pre/i/2014/264/2/6/perfect_little_girls_by_reitanna_seishin-d8036e8.png"
+            class="img-fluid"
+          />
+        </div>
+      </a>
+      {/* </nav> */}
+
     </div>
   );
 }

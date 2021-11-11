@@ -1,6 +1,6 @@
 import React from "react";
 import categoryStore from "../Store/categoryStore";
-import { observer } from "mobx-react-lite";
+import { observer } from "mobx-react";
 import RecipieList from "./RecipieList";
 import { useParams } from "react-router";
 import { Navigate } from "react-router-dom";
@@ -29,8 +29,8 @@ const CategoryDetail = () => {
       >
         <img src={category.image} className="card-img-top" alt="NO IMAGE!" />
         <div className="card-body">
-          <h5 className="card-title">Category Name:{category.name}</h5>
-          <RecipieList recipes={category.recipes} categoryId={category._id} />
+          {/* <h5 className="card-title">Category Name:{category.name}</h5> */}
+          <RecipieList category={category} />
 
           {/* <p>Created By: {category.author.username}</p> */}
 

@@ -6,12 +6,11 @@ import RecipeItem from "./RecipeItem";
 import CreateRecipeModal from "./CreateRecipeModal";
 import recipeStore from "../Store/recipeStore";
 
-function RecipieList({ recipes, categoryId }) {
+function RecipieList({ category }) {
   const [query, setQuery] = useState("");
-  console.log(recipes);
   const recipieLists =
-    recipes.length > 0
-      ? recipes
+    category.recipes.length > 0
+      ? category.recipes
           .filter((recipe) => recipe?.name.toLowerCase().includes(query))
           .map((recipe) => <RecipeItem key={recipe._id} recipe={recipe} />)
       : [];
@@ -25,7 +24,7 @@ function RecipieList({ recipes, categoryId }) {
           placeholder="Search for recipe by name"
           onChange={(event) => setQuery(event.target.value)}
         />
-        <CreateRecipeModal categoryId={categoryId} />
+        <CreateRecipeModal category={category} />
       </Stack>
 
       <Row className="box ">{recipieLists}</Row>

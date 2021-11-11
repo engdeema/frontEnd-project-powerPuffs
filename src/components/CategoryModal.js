@@ -2,6 +2,7 @@ import React from "react";
 import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import { useState } from "react";
 import categoryStore from "../Store/categoryStore";
+import { observer } from "mobx-react";
 
 function CategoryModal() {
   const [show, setShow] = useState(false);
@@ -61,4 +62,4 @@ function CategoryModal() {
   );
 }
 
-export default CategoryModal;
+export default observer(CategoryModal);
